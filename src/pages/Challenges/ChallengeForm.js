@@ -31,7 +31,7 @@ const ChallengeForm = (props) => {
     }
 
     useEffect(() => {
-        setSelectedTags([]);
+        setSelectedTags([]);        
         if(props.currentId === '') {
             setValues({
                 ...initialFieldValues
@@ -41,13 +41,20 @@ const ChallengeForm = (props) => {
                 ...props.challenges[props.currentId],
             })
             setSelectedTags(props.challenges[props.currentId].tags[0])
+            
             document.body.classList.add('sidebar-open');    
         } 
     },[props.currentId, props.challenges])
 
     const handleChallengeSubmit = (e) => {
         e.preventDefault();
-        values.tags.push(selectedTags);
+        // values.tags.push(selectedTags);
+        if(props.currentId) {
+            props.challenges[props.currentId].tags[0] = selectedTags;
+        } else {
+            values.tags.push(selectedTags);
+        }
+        
         props.addOrEdit(values);
     }
 
@@ -59,7 +66,7 @@ const ChallengeForm = (props) => {
     return (
         <>
             <div className="sidebar sidebar-fixed">
-                <div className="sidebar-backdrop" onClick={hideAddEditForm}></div>
+                <div className="sidebar-backdrop"></div>
                 <div className="sidebar-panel">
                     <div className="sidebar-panel-heading bg-primary d-flex align-items-center justify-content-between py-2 px-3">
                         <h3 className="panel-title mb-0">{props.currentId === '' ? "Add": "Edit"} Challenge</h3>
@@ -82,7 +89,6 @@ const ChallengeForm = (props) => {
                             <div className="form-group">
                                 <label htmlFor="mSelect">Select Tags</label>
                                 <MultiSelect
-                                    id="mSelect"
                                     options={options}
                                     value={selectedTags}
                                     onChange={setSelectedTags}
