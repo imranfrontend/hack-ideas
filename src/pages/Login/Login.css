@@ -1,0 +1,54 @@
+/* =====================
+    Login Page
+======================== */
+
+.app-login-page {
+    width: 100%;
+    height: 100vh;
+    min-height: 100%;
+    background-color: var(--swatch_1);
+    position: relative;
+    overflow: hidden;
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.app-login-page .website-logo {
+    font-weight: bold;
+    color: var(--swatch_3);
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+.form-holder {
+    width: 100%;
+    margin-left: 0;
+}
+.form-content {
+    display: flex;
+}
+.form-item {
+    padding: 30px 40px;
+    background-color: #fff;
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+    border-radius: 8px;
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0, 0.05);
+    box-shadow: 0 0 10px rgba(0,0,0, 0.05);
+}
+@media (max-width: 600px) {
+    .form-item {
+        margin: 0 16px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+.form-item .form-meta h1 {
+    color: var(--swatch_7);
+}
+
+.form-item .form-meta p {
+    color: var(--swatch_2);
+}
