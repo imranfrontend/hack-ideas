@@ -107,7 +107,7 @@ const Challenges = () => {
                     <div className="challenges">
                         {/* begin::Challenge */}
                         {
-                            Object.keys(challenges).map(id=> {
+                            Object.keys(challenges).length ? Object.keys(challenges).map(id=> {
                                 return (
                                     <div className="challenge mb-3 p-3" key={id}>
                                         <div className="d-flex align-items-center mb-3">
@@ -157,6 +157,7 @@ const Challenges = () => {
                                     </div>
                                 )
                             })
+                            : <div className="alert alert-info">No challenge created. Click <strong className="text-primary">Add Challenge</strong> Button on top right to create new challenge.</div>
                         }
                         {/* end::Challenge */}
                     </div>
